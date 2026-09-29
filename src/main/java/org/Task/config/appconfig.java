@@ -47,7 +47,7 @@ public class appconfig {
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor translator() {
+    public  PersistenceExceptionTranslationPostProcessor translator() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
