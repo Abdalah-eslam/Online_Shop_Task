@@ -3,9 +3,10 @@ package org.Task.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.Task.model.Order;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class OrderRepository {
 
     @PersistenceContext

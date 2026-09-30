@@ -5,19 +5,21 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.*;
 import org.Task.model.Category;
 import org.Task.model.Product;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class ProductRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-    public void save(Product product) {
+    public Product save(Product product) {
         if (product.getId() == null) em.persist(product);
         else em.merge(product);
+        return product;
     }
 
     public Product findById(Long id) {

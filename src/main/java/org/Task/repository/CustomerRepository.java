@@ -13,9 +13,10 @@ public class CustomerRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public void save(Customer customer) {
+    public Customer save(Customer customer) {
         if (customer.getId() == null) em.persist(customer);
         else em.merge(customer);
+        return customer;
     }
 
     public Customer findById(Long id) {

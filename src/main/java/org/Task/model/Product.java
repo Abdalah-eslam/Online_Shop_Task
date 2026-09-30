@@ -17,7 +17,7 @@ public class Product extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-    protected Product() {
+    public Product() {
     }
 
     public Product(String sku, String name, Double price, Integer stock) {
@@ -74,5 +74,15 @@ public class Product extends BaseEntity {
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "sku='" + sku + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                '}';
     }
 }

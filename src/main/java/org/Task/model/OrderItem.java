@@ -83,4 +83,14 @@
 
             return price.multiply(BigDecimal.valueOf(quantity));
         }
+
+        @Override
+        public String toString() {
+            return "OrderItem{" +
+                    "product=" + product +
+                    ", quantity=" + quantity +
+                    ", price=" + price +
+                    ", currency='" + currency + '\'' +
+                    '}';
+        }
     }

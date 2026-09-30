@@ -17,7 +17,7 @@ public class Payment extends BaseEntity {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    protected Payment() {
+    public Payment() {
     }
 
     public Payment(
@@ -27,6 +27,30 @@ public class Payment extends BaseEntity {
     ) {
         this.paymentMethod = paymentMethod;
         this.amount = amount;
+        this.order = order;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
         this.order = order;
     }
 }

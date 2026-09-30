@@ -8,8 +8,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
+@Table(name = "orders")
 public class Order extends BaseEntity {
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
@@ -23,10 +24,14 @@ public class Order extends BaseEntity {
     )
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne(mappedBy = "order")
+    @OneToOne(
+            mappedBy = "order",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private Payment payment;
 
-    protected Order() {
+    public Order() {
     }
 
     public Order(Customer customer, OrderStatus status, Payment payment) {
@@ -70,4 +75,19 @@ public class Order extends BaseEntity {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "customer=" + customer.toString() +
+                ", status=" + status +
+                ", payment=" + payment +
+                '}';
+    }
 }
+

@@ -11,7 +11,7 @@ public class Category extends BaseEntity {
     public Category(String name) {
         this.name = name;
     }
-    protected Category() {
+    public Category() {
     }
 
     public String getName() {

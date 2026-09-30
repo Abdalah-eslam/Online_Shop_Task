@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+
 public class Customer extends BaseEntity {
     private String name;
     @Column(unique = true)
@@ -23,7 +24,7 @@ public class Customer extends BaseEntity {
         this.phone = phone;
     }
 
-    protected Customer() {
+    public Customer() {
     }
 
     public void addOrder(Order order) {
@@ -55,5 +56,25 @@ public class Customer extends BaseEntity {
 
     public Set<Order> getOrders() {
         return orders;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setShipingAddress(ShippingAddress shipingAddress) {
+        this.shipingAddress = shipingAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
